@@ -1,0 +1,449 @@
+/* ══════════════════════════════════════════════════════
+   MSS Gestionale — CSS Core
+   Si appoggia completamente alle variabili di mss-login-ui.
+   I moduli caricano il proprio CSS con handle dipendente da 'mss-gestionale'.
+══════════════════════════════════════════════════════ */
+
+/* ── Reset area gestionale ──────────────────────────── */
+.mssg-dashboard,
+.mssg-section {
+    width: 100%;
+    min-height: 200px;
+}
+
+/* ── Header dashboard ───────────────────────────────── */
+.mssg-dashboard-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--msslu-box-border);
+}
+
+.mssg-dashboard-subtitle {
+    font-size: 13px;
+    color: var(--msslu-text-muted);
+    margin: 4px 0 0;
+}
+
+/* ── Badge ruolo ────────────────────────────────────── */
+.mssg-role-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.mssg-role-badge.mssg-role-administrator,
+.mssg-role-badge.mssg-role-mssg_admin {
+    background: rgba(249, 115, 22, .15);
+    color: #f97316;
+}
+
+.mssg-role-badge.mssg-role-mssg_capo {
+    background: rgba(59, 130, 246, .15);
+    color: #3b82f6;
+}
+
+.mssg-role-badge.mssg-role-mssg_operaio {
+    background: rgba(34, 197, 94, .15);
+    color: #22c55e;
+}
+
+.mssg-role-badge.mssg-role-mssg_cliente {
+    background: rgba(168, 85, 247, .15);
+    color: #a855f7;
+}
+
+/* ── Widget KPI (grid) ──────────────────────────────── */
+.mssg-widgets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.mssg-widget-kpi {
+    background: var(--msslu-input-bg);
+    border: 1px solid var(--msslu-box-border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: border-color .2s, background .2s;
+    text-align: left;
+}
+
+.mssg-widget-kpi:hover {
+    border-color: var(--msslu-accent);
+    background: rgba(var(--msslu-accent-rgb, 249,115,22), .06);
+}
+
+.mssg-widget-kpi .mssg-kpi-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--msslu-text);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.mssg-widget-kpi .mssg-kpi-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--msslu-text-muted);
+}
+
+.mssg-widget-kpi .mssg-kpi-icon {
+    width: 18px;
+    height: 18px;
+    margin-bottom: 8px;
+    opacity: .6;
+}
+
+/* ── Tabelle gestionale ─────────────────────────────── */
+.mssg-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 12px;
+}
+
+.mssg-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.mssg-table th {
+    text-align: left;
+    padding: 8px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--msslu-text-muted);
+    border-bottom: 1px solid var(--msslu-box-border);
+    white-space: nowrap;
+}
+
+.mssg-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--msslu-box-border);
+    color: var(--msslu-text);
+    vertical-align: middle;
+}
+
+.mssg-table tr:last-child td { border-bottom: none; }
+
+.mssg-table tr:hover td {
+    background: var(--msslu-input-bg);
+}
+
+/* ── Status badge ───────────────────────────────────── */
+.mssg-status {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 9px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.mssg-status--attivo    { background: rgba(34,197,94,.15);  color: #22c55e; }
+.mssg-status--sospeso   { background: rgba(234,179,8,.15);  color: #eab308; }
+.mssg-status--chiuso    { background: rgba(239,68,68,.15);  color: #ef4444; }
+.mssg-status--bozza     { background: rgba(148,163,184,.15);color: #94a3b8; }
+.mssg-status--completato{ background: rgba(59,130,246,.15); color: #3b82f6; }
+
+/* ── Toolbar sezione ────────────────────────────────── */
+.mssg-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+}
+
+.mssg-toolbar-left,
+.mssg-toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* ── Bottoni ────────────────────────────────────────── */
+.mssg-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background .18s, border-color .18s, opacity .18s;
+    white-space: nowrap;
+    background: none;
+    color: var(--msslu-text);
+}
+
+.mssg-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+.mssg-btn--primary {
+    background: var(--msslu-accent);
+    color: #fff;
+    border-color: var(--msslu-accent);
+}
+
+.mssg-btn--primary:hover { opacity: .88; }
+
+.mssg-btn--ghost {
+    border-color: var(--msslu-box-border);
+}
+
+.mssg-btn--ghost:hover {
+    background: var(--msslu-input-bg);
+    border-color: var(--msslu-accent);
+}
+
+.mssg-btn--danger {
+    border-color: rgba(239,68,68,.4);
+    color: #ef4444;
+}
+
+.mssg-btn--danger:hover { background: rgba(239,68,68,.08); }
+
+/* ── Input / Form gestionale ────────────────────────── */
+.mssg-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 16px;
+}
+
+.mssg-form-grid--full { grid-template-columns: 1fr; }
+
+@media (max-width: 600px) {
+    .mssg-form-grid { grid-template-columns: 1fr; }
+}
+
+.mssg-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.mssg-field-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--msslu-text-muted);
+}
+
+.mssg-field input,
+.mssg-field select,
+.mssg-field textarea {
+    background: var(--msslu-input-bg);
+    border: 1px solid var(--msslu-input-border);
+    border-radius: 7px;
+    color: var(--msslu-input-text);
+    font-size: 13px;
+    padding: 8px 10px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color .18s;
+}
+
+.mssg-field input:focus,
+.mssg-field select:focus,
+.mssg-field textarea:focus {
+    outline: none;
+    border-color: var(--msslu-accent);
+}
+
+.mssg-field textarea { resize: vertical; min-height: 80px; }
+
+/* ── Empty state ────────────────────────────────────── */
+.mssg-empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--msslu-text-muted);
+    font-size: 14px;
+}
+
+.mssg-empty-state svg {
+    width: 40px;
+    height: 40px;
+    opacity: .3;
+    margin-bottom: 12px;
+    display: block;
+    margin-inline: auto;
+}
+
+/* ── Loader ─────────────────────────────────────────── */
+.mssg-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--msslu-box-border);
+    border-top-color: var(--msslu-accent);
+    border-radius: 50%;
+    animation: mssg-spin .7s linear infinite;
+    display: inline-block;
+}
+
+@keyframes mssg-spin { to { transform: rotate(360deg); } }
+
+/* ── Sidebar: gruppo label ──────────────────────────── */
+.msslu-nav-group-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: var(--msslu-text-muted);
+    padding: 12px 16px 4px;
+    opacity: .6;
+}
+
+/* ── Responsive modal allargato per gestionale ──────── */
+@media (min-width: 900px) {
+    .msslu-modal--account {
+        max-width: min(960px, 94vw);
+    }
+
+    .msslu-account-sidebar {
+        width: 200px;
+        min-width: 200px;
+    }
+}
+
+/* ══════════════════════════════════════════════════════
+   FIX UNIVERSALE: Select / Input dark mode
+   Integrato nel core — si applica a tutti i moduli.
+══════════════════════════════════════════════════════ */
+#msslu-modal-overlay select,
+.msslu-account-main select,
+.mssg-section select,
+.mssgc-form-wrap select,
+.mssgp-form-wrap select,
+.mssgcl-section select {
+    background-color: var(--msslu-input-bg)  !important;
+    color:            var(--msslu-text)       !important;
+    border:           1px solid var(--msslu-input-border) !important;
+    border-radius:    7px !important;
+    padding:          7px 30px 7px 10px !important;
+    font-size:        13px !important;
+    appearance:       none !important;
+    -webkit-appearance: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+    background-repeat:   no-repeat !important;
+    background-position: right 10px center !important;
+    width:            100% !important;
+    box-sizing:       border-box !important;
+    cursor:           pointer !important;
+    transition:       border-color .18s !important;
+}
+
+#msslu-modal-overlay select option,
+.msslu-account-main select option,
+.mssg-section select option,
+.mssgc-form-wrap select option,
+.mssgp-form-wrap select option {
+    background-color: var(--msslu-box-bg, #1a1a2e) !important;
+    color:            var(--msslu-text, #f0f0f0)   !important;
+}
+
+#msslu-modal-overlay select:focus,
+.msslu-account-main select:focus,
+.mssg-section select:focus,
+.mssgc-form-wrap select:focus,
+.mssgp-form-wrap select:focus {
+    outline: none !important;
+    border-color: var(--msslu-accent) !important;
+}
+
+/* Input e textarea uniformi in tutti i contesti */
+.mssgc-form-wrap input:not([type=checkbox]):not([type=file]):not([type=radio]),
+.mssgc-form-wrap textarea,
+.mssgp-form-wrap input:not([type=checkbox]):not([type=file]):not([type=radio]),
+.mssgp-form-wrap textarea,
+.mssgcl-section input:not([type=checkbox]):not([type=file]):not([type=radio]),
+.mssgcl-section textarea {
+    background-color: var(--msslu-input-bg)    !important;
+    color:            var(--msslu-text)         !important;
+    border:           1px solid var(--msslu-input-border) !important;
+    border-radius:    7px !important;
+    padding:          8px 10px !important;
+    font-size:        13px !important;
+    width:            100% !important;
+    box-sizing:       border-box !important;
+    transition:       border-color .18s !important;
+}
+
+.mssgc-form-wrap input:focus,
+.mssgc-form-wrap textarea:focus,
+.mssgp-form-wrap input:focus,
+.mssgp-form-wrap textarea:focus {
+    outline:      none !important;
+    border-color: var(--msslu-accent) !important;
+}
+
+.mssgc-form-wrap input::placeholder,
+.mssgp-form-wrap input::placeholder,
+.mssgcl-section input::placeholder {
+    color: var(--msslu-input-ph, rgba(200,200,220,.45)) !important;
+}
+
+/* Checkbox e radio — accent color */
+#msslu-modal-overlay input[type=checkbox],
+#msslu-modal-overlay input[type=radio],
+.mssg-section input[type=checkbox],
+.mssg-section input[type=radio] {
+    accent-color: var(--msslu-accent) !important;
+    width: auto !important;
+}
+
+/* Tab btn leggibili */
+.mssgc-tab-btn { color: var(--msslu-text-muted) !important; }
+.mssgc-tab-btn.active { color: var(--msslu-text) !important; font-weight: 500 !important; }
+
+/* Stato archiviato */
+.mssg-status--archiviato { background: rgba(148,163,184,.12); color: #64748b; }
+
+/* Badge pin urgente */
+.mssgc-pin-btn { background:none;border:none;cursor:pointer;font-size:14px;opacity:.3;transition:opacity .2s,transform .2s;padding:2px 4px;line-height:1 }
+.mssgc-pin-btn:hover,.mssgc-pin-btn.pinned { opacity:1;transform:scale(1.15) }
+.mssgc-pin-btn.pinned { color:#f97316 }
+.mssgc-row-pinned { border-left:3px solid #f97316 !important }
+
+/* Ricerca toolbar */
+.mssg-toolbar-search { flex:1;max-width:260px;position:relative }
+.mssg-toolbar-search input { padding:6px 10px 6px 28px !important;font-size:12px !important;border-radius:20px !important }
+.mssg-toolbar-search::before { content:'🔍';position:absolute;left:9px;top:50%;transform:translateY(-50%);font-size:11px;opacity:.5;pointer-events:none;z-index:1 }
+
+/* Chat cantiere */
+.mssgc-chat-wrap { display:flex;flex-direction:column;background:var(--msslu-input-bg);border:1px solid var(--msslu-box-border);border-radius:10px;margin:16px 0;overflow:hidden }
+.mssgc-chat-messages { padding:14px;max-height:320px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth }
+.mssgc-msg { display:flex;gap:8px;align-items:flex-end }
+.mssgc-msg--out { flex-direction:row-reverse }
+.mssgc-msg-avatar { width:28px;height:28px;border-radius:50%;flex-shrink:0;object-fit:cover }
+.mssgc-msg-bubble { max-width:72%;padding:8px 12px;border-radius:12px;font-size:13px;line-height:1.45;word-break:break-word }
+.mssgc-msg--in  .mssgc-msg-bubble { background:var(--msslu-box-border);color:var(--msslu-text);border-bottom-left-radius:3px }
+.mssgc-msg--out .mssgc-msg-bubble { background:var(--msslu-accent);color:#fff;border-bottom-right-radius:3px }
+.mssgc-msg-meta { font-size:10px;color:var(--msslu-text-muted);margin-top:3px;opacity:.7 }
+.mssgc-msg--out .mssgc-msg-meta { text-align:right }
+.mssgc-msg-allegato { display:flex;align-items:center;gap:6px;margin-top:6px;padding:6px 8px;background:rgba(255,255,255,.08);border-radius:6px;font-size:11px;text-decoration:none;color:inherit }
+.mssgc-msg-allegato:hover { background:rgba(255,255,255,.14) }
+.mssgc-chat-input-wrap { display:flex;gap:8px;padding:10px 14px;border-top:1px solid var(--msslu-box-border);align-items:flex-end }
+.mssgc-chat-input { flex:1;resize:none;min-height:36px;max-height:100px;padding:8px 10px !important;border-radius:8px !important;font-size:13px;line-height:1.4 }
+.mssgc-chat-send { padding:8px 14px;border-radius:8px;background:var(--msslu-accent);color:#fff;border:none;cursor:pointer;font-size:13px;flex-shrink:0;transition:opacity .18s;height:36px;align-self:flex-end }
+.mssgc-chat-send:hover { opacity:.88 }
+.mssgc-chat-attach { background:none;border:1px solid var(--msslu-box-border);border-radius:8px;cursor:pointer;font-size:16px;height:36px;width:36px;color:var(--msslu-text-muted);transition:border-color .18s;flex-shrink:0;align-self:flex-end }
+.mssgc-chat-attach:hover { border-color:var(--msslu-accent);color:var(--msslu-accent) }
+.mssgc-chat-empty { text-align:center;padding:30px;color:var(--msslu-text-muted);font-size:13px }
